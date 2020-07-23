@@ -1,16 +1,16 @@
 <h1> SHOW </h1>
 <div class="container">
-  <div class="card" style="width: 18rem;">
-    <%= cl_image_tag @pokemon.photo.key, class:"card-img-top" %>
+  <div class="card mx-auto" style="width: 18rem; ">
+    <h5 class="card-title text-center" style="margin-top: 8px"><%= @pokemon.name %></h5>
+
     <div class="card-body">
-      <h5 class="card-title"><%= @pokemon.name %></h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <%= cl_image_tag @pokemon.photo.key, class:"card-img-top" %>
     </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item">Element : <%= @pokemon.element %></li>
-      <li class="list-group-item">Attack Points : <%= @pokemon.attack %></li>
-      <li class="list-group-item">Life Points : <%= @pokemon.life %></li>
-      <li class="list-group-item">Location : <%= @pokemon.location %></li>
+      <li class="list-group-item">Attack Points : <%= @pokemon.attack %> <i class="fas fa-khanda"></i></li>
+      <li class="list-group-item">Life Points : <%= @pokemon.life %> <i class="fas fa-heart"></i></li>
+      <li class="list-group-item">Location : <%= @pokemon.location %> <i class="fas fa-map-marker-alt"></i></li>
     </ul>
     <div class="card-body">
       <% if user_signed_in? %>
