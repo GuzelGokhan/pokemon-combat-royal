@@ -36,6 +36,5 @@ pokemons = [ golbat, pidgeotto, scyther, zapdos, cubone, nidoking, nidoqueen, sa
 
 pokemons.each do |pokemon|
   Pokemon.create!(pokemon)
-  puts "Created #{pokemon.name}"
 end
 puts "Finished!"
