@@ -15,10 +15,10 @@
       <li class="list-group-item">Location : <%= @pokemon.location %> <i class="fas fa-map-marker-alt"></i></li>
     </ul>
     <div class="card-body">
-      <% if user_signed_in? %>
-      <%= link_to 'Edit', edit_pokemon_path(@pokemon), class: 'btn btn-primary' %> |
-      <%= link_to 'Back', pokemons_path, class: 'btn btn-primary'  %>
+      <% if user_signed_in? && current_user.eql?(@pokemon.user) %>
+      <%= link_to 'Edit', edit_pokemon_path(@pokemon), class: 'btn btn-primary' %>
       <% end %>
+      <%= link_to 'Back', pokemons_path, class: 'btn btn-primary'  %>
     </div>
   </div>
 </div>
