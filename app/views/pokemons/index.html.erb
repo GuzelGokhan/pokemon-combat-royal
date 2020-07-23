@@ -6,7 +6,9 @@
       <h5 class="card-title text-center"><%= pokemon.name %></h5>
 
       <div class="card-body">
+        <% if pokemon.photo.attached?%>
         <%= cl_image_tag pokemon.photo.key, class:"card-img-top" %>
+        <%end%>
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">Element : <%= pokemon.element %></li>
