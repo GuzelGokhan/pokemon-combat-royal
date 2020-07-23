@@ -1,0 +1,35 @@
+<h1> SHOW </h1>
+<p>
+  <%= @pokemon.image %>
+<p>
+  <strong>Name:</strong>
+  <%= @pokemon.name %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @pokemon.location %>
+</p>
+
+<p>
+  <strong>Element:</strong>
+  <%= @pokemon.element %>
+</p>
+
+<p>
+  <strong>Life:</strong>
+  <%= @pokemon.life %>
+</p>
+
+<p>
+  <strong>Attack:</strong>
+  <%= @pokemon.attack %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @pokemon.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_pokemon_path(@pokemon), class: 'btn btn-primary' %> |
+<%= link_to 'Back', pokemons_path, class: 'btn btn-primary'  %>

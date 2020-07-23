@@ -1,0 +1,13 @@
+<h1>EDIT</h1>
+<%= simple_form_for(@pokemon) do |f| %>
+<%= f.input :name %>
+<%= f.input :location %>
+<%= f.input :element %>
+<%= f.input :life %>
+<%= f.input :attack %>
+<%= f.input :image, as: :file%>
+<%= f.button :submit, class: 'btn btn-primary'  %>
+<% end %>
+
+<%= link_to 'Show', @pokemon %> |
+<%= link_to 'Back', pokemons_path %>
