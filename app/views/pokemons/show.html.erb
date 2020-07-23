@@ -1,35 +1,22 @@
 <h1> SHOW </h1>
-<p>
-  <%= cl_image_tag "k64ffzmobycsf9oleol1" %>
-<p>
-  <strong>Name:</strong>
-  <%= @pokemon.name %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @pokemon.location %>
-</p>
-
-<p>
-  <strong>Element:</strong>
-  <%= @pokemon.element %>
-</p>
-
-<p>
-  <strong>Life:</strong>
-  <%= @pokemon.life %>
-</p>
-
-<p>
-  <strong>Attack:</strong>
-  <%= @pokemon.attack %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @pokemon.user_id %>
-</p>
-
-<%= link_to 'Edit', edit_pokemon_path(@pokemon), class: 'btn btn-primary' %> |
-<%= link_to 'Back', pokemons_path, class: 'btn btn-primary'  %>
+<div classs="container">
+  <div class="card" style="width: 18rem;">
+    <%= cl_image_tag @pokemon.photo.key, class:"card-img-top" %>
+    <div class="card-body">
+      <h5 class="card-title"><%= @pokemon.name %></h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Element : <%= @pokemon.element %></li>
+      <li class="list-group-item">Attack Points : <%= @pokemon.attack %></li>
+      <li class="list-group-item">Life Points : <%= @pokemon.life %></li>
+      <li class="list-group-item">Location : <%= @pokemon.location %></li>
+    </ul>
+    <div class="card-body">
+      <% if user_signed_in? %>
+      <%= link_to 'Edit', edit_pokemon_path(@pokemon), class: 'btn btn-primary' %> |
+      <%= link_to 'Back', pokemons_path, class: 'btn btn-primary'  %>
+      <% end %>
+    </div>
+  </div>
+</div>
