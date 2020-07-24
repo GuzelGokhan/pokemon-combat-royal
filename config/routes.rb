@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :decks , only: [:new, :create]
   end
 
-  resources :decks, only: [:show, :destroy, :update]
+  resources :decks, only: [:show, :index, :destroy, :update]
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

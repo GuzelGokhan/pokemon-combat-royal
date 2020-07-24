@@ -1,0 +1,26 @@
+<h1>My Decks</h1>
+<div class="container">
+  <div class="card-columns">
+    <% @decks.each do |deck| %>
+    <div class="card" style="width: 18rem;">
+      <h5 class="card-title text-center"><%= deck.pokemon.name %></h5>
+
+      <div class="card-body">
+        <% if deck.pokemon.photo.attached?%>
+        <%= cl_image_tag deck.pokemon.photo.key, class:"card-img-top" %>
+        <%end%>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Element : <%= deck.pokemon.element %></li>
+        <li class="list-group-item">Attack Points : <%= deck.pokemon.attack %></li>
+        <li class="list-group-item">Life Points : <%= deck.pokemon.life %></li>
+        <li class="list-group-item">Location : <%= deck.pokemon.location %></li>
+      </ul>
+      <div class="card-body">
+        <%= link_to "Remove from Deck", deck_path(deck), method: :delete, class:"btn btn-primary", data: {confirm: "Are you sure"} %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+
+</div>

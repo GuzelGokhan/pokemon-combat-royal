@@ -1,6 +1,12 @@
 class DecksController < ApplicationController
 before_action :set_pokemon , only: [:new,:create]
 
+  def index
+    @user = current_user
+    @decks = Deck.where(user: @user)
+  end
+  
+
   def show
     @deck = Deck.find(params[:id])
   end
@@ -14,16 +20,38 @@ before_action :set_pokemon , only: [:new,:create]
     @deck = Deck.new(params_deck)
     @deck.pokemon = @pokemon 
     @deck.user = current_user
-    if @deck.save
-      flash[:success] = "Deck successfully created"
-      redirect_to @deck
+    if check_decks(@deck,@pokemon)
+      if @deck.save
+        flash[:success] = "Deck successfully created"
+        redirect_to @deck
+      else
+        flash[:error] = "Something went wrong"
+        render 'new'
+      end
+    end
+  end
+
+  def destroy
+    @deck = Deck.find(params[:id])
+    if @deck.destroy
+      flash[:success] = 'Deck was successfully deleted.'
+      redirect_to decks_path
     else
-      flash[:error] = "Something went wrong"
-      render 'new'
+      flash[:error] = 'Something went wrong'
+      redirect_to decks_path
     end
   end
   
+  
   private
+
+  def check_decks(deck,pokemon)
+    pokemon.decks.each do |elem|
+      if elem.start.eql?(deck.start)
+        return false
+      end
+    end
+  end
 
   def set_pokemon
     @pokemon = Pokemon.find(params[:pokemon_id])
