@@ -15,7 +15,7 @@
       <li class="list-group-item">Location : <%= @pokemon.location %> <i class="fas fa-map-marker-alt"></i></li>
     </ul>
     <div class="card-body mx-auto">
-      <%= link_to 'Add to Deck', new_pokemon_deck_path(@pokemon), class: 'btn btn-primary' %> |
+      <%= link_to 'Recruit', new_pokemon_deck_path(@pokemon), class: 'btn btn-primary' %> |
       <%= link_to 'Back', pokemons_path, class: 'btn btn-primary'  %>
     </div>
     <div class="card-footer mx-auto">
