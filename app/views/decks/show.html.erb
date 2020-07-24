@@ -1,0 +1,27 @@
+<h1> SHOW </h1>
+<div class="container">
+  <div class="card mx-auto" style="width: 18rem; ">
+    <h5 class="card-title text-center" style="margin-top: 8px"><%= @deck.pokemon.name %></h5>
+
+    <div class="card-body">
+      <% if @deck.pokemon.photo.attached? %>
+      <%= cl_image_tag @deck.pokemon.photo.key, class:"card-img-top" %>
+    </div>
+    <%end%>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Element : <%= @deck.pokemon.element %></li>
+      <li class="list-group-item">Attack Points : <%= @deck.pokemon.attack %> <i class="fas fa-khanda"></i></li>
+      <li class="list-group-item">Life Points : <%= @deck.pokemon.life %> <i class="fas fa-heart"></i></li>
+      <li class="list-group-item">Location : <%= @deck.pokemon.location %> <i class="fas fa-map-marker-alt"></i></li>
+    </ul>
+    <div class="card-body mx-auto">
+      <%= link_to 'Add to Deck', new_pokemon_deck_path(@deck.pokemon), class: 'btn btn-primary' %> |
+      <%= link_to 'Back', pokemons_path, class: 'btn btn-primary'  %>
+    </div>
+    <div class="card-footer mx-auto">
+      <% if user_signed_in? && current_user.eql?(@deck.pokemon.user) %>
+      <%= link_to 'Edit', edit_pokemon_path(@deck.pokemon), class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>
