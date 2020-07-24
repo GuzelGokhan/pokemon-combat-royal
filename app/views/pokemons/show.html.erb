@@ -21,6 +21,7 @@
     <div class="card-footer mx-auto">
       <% if user_signed_in? && current_user.eql?(@pokemon.user) %>
       <%= link_to 'Edit', edit_pokemon_path(@pokemon), class: 'btn btn-primary' %>
+      <%= link_to "Delete", pokemon_path(@pokemon), method: :delete, class:"btn btn-primary", data: {confirm: "Are you sure"} %>
       <% end %>
     </div>
   </div>
