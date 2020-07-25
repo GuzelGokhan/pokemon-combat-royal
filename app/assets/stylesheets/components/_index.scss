@@ -2,3 +2,8 @@
 @import "alert";
 @import "avatar";
 @import "navbar";
+
+.card.active {
+  border: solid 2px red;
+  background-color: white;
+}
