@@ -5,13 +5,7 @@ class PagesController < ApplicationController
     if params[:query].present?
       @pokemons = Pokemon.where(name: params[:query])
     else
-      @pokemons = Pokemon.geocoded
-      @markers = @pokemons.map do |pokemon|
-      {
-        lat: pokemon.latitude,
-        lng: pokemon.longitude
-      }
-      end
+      @pokemons = Pokemon.all
     end
   end
 
