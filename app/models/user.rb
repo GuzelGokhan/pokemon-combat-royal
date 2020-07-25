@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :pokemons
   has_many :decks
+  has_many :deck_pokemons, through: :decks, source: :pokemon
 end

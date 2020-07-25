@@ -17,14 +17,7 @@ class PagesController < ApplicationController
 
   def battle
     @user = current_user
-    @pokemons = []
-    pokemons = Pokemon.all
-    pokemons.each do |pokemon|
-      pokemon.decks.each do |deck|
-        if deck.user_id = @user
-        @pokemons << pokemon
-        end
-      end
-    end
+    @pokemons = current_user.deck_pokemons
+    @oponent = Pokemon.order('RANDOM()').first
   end
 end

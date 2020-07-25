@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>PokemonCombatRoyal</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+<head>
+  <title>PokemonCombatRoyal</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
-  </head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-  <body>
-    <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+</head>
 
-    <%= yield %>
-  </body>
+<body>
+  <%= render 'shared/navbar' %>
+  <%= render 'shared/flashes' %>
+  <div class="container">
+    <div class="row mt-4">
+      <div class="col">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+</body>
+
 </html>

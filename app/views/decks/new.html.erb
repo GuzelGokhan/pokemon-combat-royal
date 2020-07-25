@@ -1,11 +1,13 @@
     <h1>Recruit for Army </h1>
-    <div class="col-xs-12 col-sm-6">
-      <div class="text-center">
-        <%= simple_form_for [@pokemon,@deck] do |f| %>
-        <%= f.input :start_date %>
-        <%= f.input :end_date %>
-        <%= f.submit %>
-        <% end%>
+    <div class="flex-center mt-4">
+      <div class="col-xs-12 col-sm-6">
+        <div class="text-center">
+          <%= simple_form_for [@pokemon,@deck] do |f| %>
+          <%= f.input :start_date %>
+          <%= f.input :end_date %>
+          <%= f.submit %>
+          <% end%>
 
+        </div>
       </div>
     </div>
