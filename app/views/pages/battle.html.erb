@@ -1,0 +1,13 @@
+<h1>Battle</h1>
+<div class="container">
+  <div class="card-columns">
+    <% @pokemons.each do |pokemon| %>
+    <div class="card" style="width: 10rem;">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><%= cl_image_tag pokemon.photo.key, class:"card-img-top" %></li>
+      </ul>
+    </div>
+    <% end %>
+  </div>
+
+</div>

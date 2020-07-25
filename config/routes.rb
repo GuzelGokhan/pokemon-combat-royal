@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+  get 'battle', to: 'pages#battle'
   resources :pokemons do 
     resources :decks , only: [:new, :create]
   end

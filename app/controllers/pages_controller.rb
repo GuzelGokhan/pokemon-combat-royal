@@ -10,4 +10,17 @@ class PagesController < ApplicationController
       }
     end
   end
+
+  def battle
+    @user = current_user
+    @pokemons = []
+    pokemons = Pokemon.all
+    pokemons.each do |pokemon|
+      pokemon.decks.each do |deck|
+        if deck.user_id = @user
+        @pokemons << pokemon
+        end
+      end
+    end
+  end
 end
