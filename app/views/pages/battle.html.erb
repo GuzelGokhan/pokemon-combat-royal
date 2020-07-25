@@ -1,11 +1,22 @@
 <h1>Battle</h1>
-<div class="container">
-
-  <% @pokemons.each do |pokemon| %>
-  <div class="card" style="width: 10rem;">
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item"><%= cl_image_tag pokemon.photo.key, class:"card-img-top" %></li>
-    </ul>
+<div class="container" style="display: flex; justify-content: space-between;">
+  <div class="container">
+    <h2>My Army</h2>
+    <% @pokemons.each do |pokemon| %>
+    <div class="card" style="width: 10rem;">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><%= cl_image_tag pokemon.photo.key, class:"card-img-top" %></li>
+      </ul>
+    </div>
+    <% end %>
   </div>
-  <% end %>
+
+  <div class="container">
+    <h2>Oponent Choice</h2>
+    <div class="card" style="width: 10rem;">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><%= cl_image_tag @oponent.photo.key, class:"card-img-top" %></li>
+      </ul>
+    </div>
+  </div>
 </div>
