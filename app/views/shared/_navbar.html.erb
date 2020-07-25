@@ -10,6 +10,12 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <%= form_tag (controller_name == 'pages' && action_name == 'home') ? root_path : pokemons_path , method: :get do %>
+        <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find a pokemon"%>
+      </li>
+      <li class="nav-item"><%= submit_tag "Search", class: 'nav-link active' %></li>
+      <% end %>
       <% if user_signed_in? %>
       <li class="nav-item active">
         <%= link_to 'My Army', decks_path ,class: 'nav-link active'%>

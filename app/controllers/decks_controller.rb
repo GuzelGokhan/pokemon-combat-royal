@@ -20,7 +20,6 @@ before_action :set_pokemon , only: [:new,:create]
     @deck = Deck.new(params_deck)
     @deck.pokemon = @pokemon 
     @deck.user = current_user
-    if check_decks(@deck,@pokemon)
       if @deck.save
         flash[:success] = "Deck successfully created"
         redirect_to @deck
@@ -28,7 +27,6 @@ before_action :set_pokemon , only: [:new,:create]
         flash[:error] = "Something went wrong"
         render 'new'
       end
-    end
   end
 
   def destroy
@@ -58,7 +56,7 @@ before_action :set_pokemon , only: [:new,:create]
   end
 
   def params_deck
-    params.require(:deck).permit(:start,:end, :user_id, :pokemon_id)
+    params.require(:deck).permit(:start_date,:end_date, :user_id, :pokemon_id)
   end
   
 end

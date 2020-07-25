@@ -3,8 +3,12 @@ class PokemonsController < ApplicationController
   skip_before_action :authenticate_user!, only:[:index, :show]
 
   def index
+    if params[:query].present?
+      @pokemons = Pokemon.where('name ILIKE ?', "%#{params[:query]}%")
+    else
     @user = current_user
     @pokemons = Pokemon.where(user: @user)
+    end
   end
 
   def show
